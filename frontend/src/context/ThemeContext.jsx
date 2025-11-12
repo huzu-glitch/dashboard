@@ -6,6 +6,8 @@ export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
   const userId = 1;
@@ -13,7 +15,7 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const fetchTheme = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/theme/${userId}`);
+        const response = await fetch(`${backendUrl}/theme/${userId}`);
         if (response.ok) {
           const data = await response.json();
           setTheme(data.theme);
@@ -36,7 +38,7 @@ export const ThemeProvider = ({ children }) => {
     setTheme(newTheme);
 
     try {
-      await fetch(`http://localhost:3001/theme/${userId}`, {
+      await fetch(`${backendUrl}/theme/${userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
