@@ -8,7 +8,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://dashboard-gamma-six-21.vercel.app',
+  optionsSuccessStatus: 200 
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const pool = new pg.Pool({

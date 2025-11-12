@@ -6,7 +6,7 @@ export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+const backendUrl = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001').replace(/\/$/, "");
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
