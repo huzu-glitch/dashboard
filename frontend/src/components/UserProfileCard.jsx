@@ -32,7 +32,7 @@ const UserProfileCard = () => {
 
   if (loading) {
     return (
-      <Card className="w-[350px]">
+      <Card className="w-full md:w-[350px]">
         <CardHeader>
           <CardTitle>Loading Profile...</CardTitle>
         </CardHeader>
@@ -44,12 +44,12 @@ const UserProfileCard = () => {
   }
 
   return (
-    <Card className="w-[350px]">
+    <Card className="w-full md:w-[350px]">
       <CardHeader>
         <CardTitle>User Profile</CardTitle>
         <CardDescription>Update your profile information.</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 p-4 md:p-6">
         <div className="space-y-2">
           <label htmlFor="fullName">Full Name</label>
           <Input
